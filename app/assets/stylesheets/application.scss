@@ -1,3 +1,7 @@
+@import "bootstrap";
+@import "base";
+@import "headers";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +17,22 @@
  *= require_tree .
  *= require_self
  */
+
+.home-left .card {
+  max-width: 288px;
+}
+
+.profile-section {
+  margin: 40px auto 60px;
+}
+
+.profile-section .name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.my-posts-heaeding {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
