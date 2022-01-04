@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 2022_01_04_081841) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
