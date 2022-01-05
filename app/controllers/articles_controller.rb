@@ -1,5 +1,12 @@
 class ArticlesController < ApplicationController
   def index
+    @articles = Article.all
+  end
+
+  def show
+    @articles = Article.all
+    @article  = @articles.find(params[:id])
+    render :index
   end
 
   def create
