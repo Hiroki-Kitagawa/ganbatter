@@ -1,0 +1,18 @@
+<% if @article %>
+  <li class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title"><%= @article.title %></h3>
+      <p class="card-text"><%= @article.content %></p>
+    </div>
+    <div class="card-footer">
+      <div class="card-footer-left">
+        <p><%= user_name(@article) %></p>
+        <%= image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar' %>
+      </div>
+      <div class="card-footer-right">
+        <%= image_tag 'edit-icon.png', alt: '編集ボタン', class: 'edit' %>
+        <%= image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete' %>
+      </div>
+    </div>
+  </li>
+<% end %>

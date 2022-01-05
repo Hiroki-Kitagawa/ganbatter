@@ -13,3 +13,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require("custom/bootstrap.js")
+require("custom/modal.js")
