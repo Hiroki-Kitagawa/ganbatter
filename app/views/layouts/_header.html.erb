@@ -41,12 +41,18 @@
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <%= image_tag 'default-icon.png', alt: 'デフォルトアイコン', class: 'rounded-circle header-dropdown-icon' %>
         </a>
-        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">設定</a></li>
-          <li><a class="dropdown-item" href="#">プロフィール</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">ログアウト</a></li>
+        <% if user_signed_in? %>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">設定</a></li>
+            <li><a class="dropdown-item" href="#">プロフィール</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
+        <% else %>
+          <ul>
+            <li><%= link_to "ログイン", user_session_path, method: :post %></li>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>

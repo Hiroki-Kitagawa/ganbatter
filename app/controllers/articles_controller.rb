@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_articles, only: [:index, :show]
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy, :new]
 
   def index
     @article  = @articles.first
@@ -26,12 +26,23 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = current_user.articles.find(params[:id])
   end
 
   def update
+    @article = current_user.articles.find(params[:id])
+    if @article.update(article_params)
+      flash[:success] = "Article updated!"
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   def destroy
+    current_user.articles.find(params[:id]).destroy
+    flash[:success] = "Article deleted!"
+    redirect_to root_url
   end
 
   private

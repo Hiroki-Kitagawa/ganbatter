@@ -9,10 +9,16 @@
         <p><%= user_name(@article) %></p>
         <%= image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar' %>
       </div>
-      <div class="card-footer-right">
-        <%= image_tag 'edit-icon.png', alt: '編集ボタン', class: 'edit' %>
-        <%= image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete' %>
-      </div>
+      <% if user_signed_in? && current_user.articles.exists?(id: @article.id) %>
+        <div class="card-footer-right">
+          <%= link_to edit_article_path(@article) do %>
+            <%= image_tag 'edit-icon.png', alt: '編集ボタン', class: 'edit' %>
+          <% end %>
+          <%= link_to article_path(@article), data: {method: 'delete', confirm: '削除しますか？'} do %>
+            <%= image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </li>
 <% end %>
