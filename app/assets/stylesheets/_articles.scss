@@ -1,0 +1,74 @@
+.home-left .card {
+  max-width: 288px;
+}
+
+.profile-section {
+  margin: 40px auto 60px;
+}
+
+.profile-section .name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.my-posts-heaeding {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.articles {
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .home-left .card {
+    opacity: .6;
+  }
+
+  .home-left .card.is-active {
+    opacity: 1;
+    box-shadow: 0 2px 4px rgba($color: #000000, $alpha: .12);
+  }
+
+  .card-footer {
+    padding: 4px 12px;
+    font-size: 12px;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-footer-left {
+    display: flex;
+    align-items: center;
+
+    > p {
+      margin-right: 8px;
+    }
+
+    .avatar {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+    }
+  }
+
+  .card-footer-right {
+    display: flex;
+    align-items: center;
+
+    .edit {
+      width: 14px;
+      height: 14px;
+      margin-right: 4px;
+    }
+
+    .delete {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

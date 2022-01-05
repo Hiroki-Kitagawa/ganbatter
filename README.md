@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ紹介
 
-Things you may want to cover:
+## メンバー紹介
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Set up
+```zsh
+$ bundle config set --local without 'production'
+$ bundle
+$ rails webpacker:install
+$ rails db:migrate
+$ rails server
+```
