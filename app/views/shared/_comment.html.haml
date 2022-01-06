@@ -6,8 +6,9 @@
           %p.card-text= comment.content
         .card-footer
           .card-footer-left
-            %p ユーザー名
+            %p= user_name(comment)
             = image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar'
           .card-footer-right
             = image_tag 'edit-icon.png',   alt: '編集ボタン', class: 'edit'
-            = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'
+            = link_to article_comment_path(article_id: comment.article_id, id: comment.id), method: 'delete' do
+              = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'

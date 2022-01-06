@@ -30,7 +30,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    current_user.articles.find(params[:id]).destroy
+    article = Article.find(params[:article_id])
+    article.comments.find(params[:id]).destroy!
     flash[:success] = "もったいない！"
     redirect_to root_url
   end
