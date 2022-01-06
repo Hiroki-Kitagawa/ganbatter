@@ -1,0 +1,14 @@
+.outer.container
+  .row
+    = form_with(model: @article, local: true) do |f|
+      %ul
+        - @article.errors.full_messages.each do |message|
+          %li= message
+      .form-signin
+        .mb-3
+          = f.label :title, class: 'form-label'
+          = f.text_field :title, class: 'form-control'
+        .mb-3
+          = f.label :content
+          = f.text_field :content, class: 'form-control'
+        = f.submit '送信', class: "btn btn-primary"

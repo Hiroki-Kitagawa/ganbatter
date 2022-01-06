@@ -1,0 +1,19 @@
+%main.articles
+  .outer.container
+    .row
+      %ul.home-left.col-4
+        = render 'shared/articles'
+      .home-right.col-8
+        = render 'shared/article'
+        = render 'shared/comment'
+        .btn-secondary.show-comment-form 応援コメントする
+        - if user_signed_in?
+          = form_with(model: @comment, url: article_comments_path(@article.id), local: true) do |f|
+            - @comment.errors.full_messages.each do |message|
+              %li= message
+            .form-signin
+              .mb-3
+                = f.hidden_field :user_id, :value => current_user.id
+                = f.label :content
+                = f.text_field :content, class: 'form-control'
+              = f.submit '送信', class: "btn btn-primary"

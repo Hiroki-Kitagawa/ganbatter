@@ -1,0 +1,15 @@
+- if @article
+  %li.card.mb-3
+    .card-body
+      %h3.card-title= @article.title
+      %p.card-text= @article.content
+    .card-footer
+      .card-footer-left
+        %p= user_name(@article)
+        = image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar'
+      - if user_signed_in? && current_user.articles.exists?(id: @article.id)
+        .card-footer-right
+          = link_to edit_article_path(@article) do
+            = image_tag 'edit-icon.png', alt: '編集ボタン', class: 'edit'
+          = link_to article_path(@article), data: {method: 'delete', confirm: '削除しますか？'} do
+            = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'
