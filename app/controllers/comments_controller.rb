@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:content, :user_id)
+      params.require(:comment).permit(:content, :user_id, :article_id)
     end
     def set_comments
       @comment = Comment.all.order(updated_at: :desc)
