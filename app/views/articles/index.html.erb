@@ -4,28 +4,26 @@
       <ul class="home-left col-4">
         <%= render 'shared/articles' %>
       </ul>
-      <ul class="home-right col-8">
+      <div class="home-right col-8">
         <%= render 'shared/article' %>
-        <ul>
-          <% if current_page?(root_path) %>
-            <%= render 'shared/show_comment' %>
-          <% else %>
-            <%= render 'shared/show_comment' %>
-          <% end %>
-        </ul>
+        <%= render 'shared/comment' %>
         <div class="btn-secondary show-comment-form">応援コメントする</div>
-        <%= form_with(model: @comment, url: article_comments_path(@article.id), local: true) do |f| %>
-          <div class="form-signin">
-            <div class="mb-3">
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.label :content %>
-              <%= f.text_field :content, class: 'form-control' %>
+        <% if user_signed_in? %>
+          <%= form_with(model: @comment, url: article_comments_path(@article.id), local: true) do |f| %>
+            <% @comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            <div class="form-signin">
+              <div class="mb-3">
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.label :content %>
+                <%= f.text_field :content, class: 'form-control' %>
+              </div>
+              <%= f.submit '送信', class: "btn btn-primary" %>
             </div>
-            <%= f.submit '送信', class: "btn btn-primary" %>
-          </div>
+          <% end %>
         <% end %>
-        </div>
-      </ul>
+      </div>
     </div>
   </div>
 </main>
