@@ -6,12 +6,24 @@
       </ul>
       <ul class="home-right col-8">
         <%= render 'shared/article' %>
+        <ul>
+          <% if current_page?(root_path) %>
+            <%= render 'shared/show_comment' %>
+          <% else %>
+            <%= render 'shared/show_comment' %>
+          <% end %>
+        </ul>
         <div class="btn-secondary show-comment-form">応援コメントする</div>
-        <div class="comment-text-area hidden">
-          <%= text_area_tag :comment_content %>
-        <div class="btn-primary add-comment-button">
-          <a href="">送信</a>
-        </div>
+        <%= form_with(model: @comment, url: article_comments_path(@article.id), local: true) do |f| %>
+          <div class="form-signin">
+            <div class="mb-3">
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.label :content %>
+              <%= f.text_field :content, class: 'form-control' %>
+            </div>
+            <%= f.submit '送信', class: "btn btn-primary" %>
+          </div>
+        <% end %>
         </div>
       </ul>
     </div>

@@ -2,19 +2,16 @@ class CommentsController < ApplicationController
   before_action :set_comments, only: [:index, :show]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
-  def new
-    @article  = Article.find(params[:article_id])
-    @comment  = @article.comments.build
-  end
-
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
+    @articles = Article.all.order(updated_at: :desc)
+    @comments = @article.comments
     if @comment.save
       flash[:success] = "応援できた！"
       redirect_to article_path(@article)
     else
-      render :new
+      render 'articles/index'
     end
   end
 

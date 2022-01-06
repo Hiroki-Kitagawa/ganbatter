@@ -3,11 +3,15 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
-    @article  = @articles.first
+    @article   = @articles.first
+    @comments  = @article.comments
+    @comment   = @article.comments.build
   end
 
   def show
     @article  = @articles.find(params[:id])
+    @comments = @article.comments
+    @comment  = @article.comments.build
     render :index
   end
 
