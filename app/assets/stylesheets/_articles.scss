@@ -72,3 +72,17 @@
     }
   }
 }
+
+.comment-text-area textarea {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 8px 8px;
+  min-height: 200px;
+  resize: vertical;
+  border: 1px solid #333;
+  background-color: #fff;
+}
+
+.comment-text-area.hidden {
+  display: none;
+}

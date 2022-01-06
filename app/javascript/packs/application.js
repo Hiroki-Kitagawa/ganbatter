@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 require("custom/bootstrap.js")
 require("custom/modal.js")
+require("custom/article.js")

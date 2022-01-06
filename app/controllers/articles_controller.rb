@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_articles, only: [:index, :show]
-  before_action :authenticate_user!, only: [:create, :update, :destroy, :new]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
     @article  = @articles.first
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:success] = "Article created!"
+      flash[:success] = "よし！目標を作成できた！頑張ろう！"
       redirect_to root_url
     else
       render :new
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
   def update
     @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
-      flash[:success] = "Article updated!"
+      flash[:success] = "いいね！目標を改善した！頑張れる気がする！"
       redirect_to root_url
     else
       render :edit
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     current_user.articles.find(params[:id]).destroy
-    flash[:success] = "Article deleted!"
+    flash[:success] = "削除してしまった、、次頑張ろう！"
     redirect_to root_url
   end
 

@@ -1,16 +1,17 @@
 class CommentsController < ApplicationController
   before_action :set_comments, only: [:index, :show]
-  before_action :authenticate_user!, only: [:create, :update, :destroy, :new]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def new
-    @comment  = Article.find(params[:article_id]).comments.build
+    @article  = Article.find(params[:article_id])
+    @comment  = @article.comments.build
   end
-  
+
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
     if @comment.save
-      flash[:success] = "Comment created!"
+      flash[:success] = "応援できた！"
       redirect_to article_path(@article)
     else
       render :new
@@ -24,7 +25,7 @@ class CommentsController < ApplicationController
   def update
     @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
-      flash[:success] = "Article updated!"
+      flash[:success] = "いいね！"
       redirect_to root_url
     else
       render :edit
@@ -33,7 +34,7 @@ class CommentsController < ApplicationController
 
   def destroy
     current_user.articles.find(params[:id]).destroy
-    flash[:success] = "Article deleted!"
+    flash[:success] = "もったいない！"
     redirect_to root_url
   end
 
@@ -44,5 +45,4 @@ class CommentsController < ApplicationController
     def set_comments
       @comment = Comment.all.order(updated_at: :desc)
     end
-  
 end
