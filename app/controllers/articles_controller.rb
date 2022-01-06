@@ -4,14 +4,18 @@ class ArticlesController < ApplicationController
 
   def index
     @article   = @articles.first
-    @comments  = @article.comments
-    @comment   = @article.comments.build
+    if @article
+      @comments  = @article.comments
+     # @comment   = @article.comments.build
+      @comment = Comment.new
+    end
   end
 
   def show
     @article  = @articles.find(params[:id])
     @comments = @article.comments
-    @comment  = @article.comments.build
+    @comment = Comment.new
+    #@comment  = @article.comments.build
     render :index
   end
 
