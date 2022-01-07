@@ -15,17 +15,15 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    @article = current_user.articles.find(params[:id])
-  end
-
   def update
-    @article = current_user.articles.find(params[:id])
-    if @article.update(article_params)
+    @article = current_user.articles.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    
+    if @comment.update(comment_params)
       flash[:success] = "いいね！"
       redirect_to root_url
     else
-      render :edit
+      render 'articles/index'
     end
   end
 
