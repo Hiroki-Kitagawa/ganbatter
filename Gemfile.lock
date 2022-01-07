@@ -143,11 +143,11 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5-arm64-darwin)
+    nokogiri (1.13.0-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.12.5-x64-mingw32)
+    nokogiri (1.13.0-x64-mingw32)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.13.0-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -158,7 +158,7 @@ GEM
     rack (2.2.3)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
-    rack-proxy (0.7.0)
+    rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -230,11 +230,8 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
     temple (0.8.2)
-    thor (1.1.0)
+    thor (1.2.1)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2021.5)
@@ -289,7 +286,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
-  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
