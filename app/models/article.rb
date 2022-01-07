@@ -2,11 +2,12 @@
 #
 # Table name: articles
 #
-#  id         :integer          not null, primary key
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  id          :integer          not null, primary key
+#  likes_count :integer          default(0)
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer          not null
 #
 # Indexes
 #
@@ -21,6 +22,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_rich_text :content
+  has_many :likes
 
   validates :user_id, presence: true
   validates :title,   presence: true, length: {maximum: 100}

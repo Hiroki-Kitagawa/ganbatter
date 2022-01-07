@@ -10,9 +10,11 @@
             %p= user_name(article)
             = image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar'
       .bubbly-button
-        = image_tag 'heart-active.svg', class: 'like-button-img'
-        = image_tag 'heart.svg', class: 'like-button-img'
-        %span 1
+        - if article.likes_count == 0
+          = image_tag 'heart.svg', class: 'like-button-img'
+        - else
+          = image_tag 'heart-active.svg', class: 'like-button-img'
+      %span= article.likes_count
 
 :javascript
   var animateButton = function(e) {
