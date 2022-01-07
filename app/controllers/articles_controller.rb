@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
     if @article
       @comments = @article.comments
       @comment  = Comment.new
+      @likes = @article.likes_count
     end
   end
 
@@ -14,6 +15,7 @@ class ArticlesController < ApplicationController
     @article  = @articles.find(params[:id])
     @comments = @article.comments
     @comment = Comment.new
+    @likes = @article.likes_count
     render :index
   end
 
