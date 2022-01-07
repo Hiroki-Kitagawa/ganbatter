@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'faker'
 gem 'hamlit'
-
+gem 'image_processing'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do

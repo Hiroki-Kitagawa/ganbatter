@@ -2,7 +2,7 @@
   %li.card.mb-3
     .card-body
       %h3.card-title= @article.title
-      %p.card-text= @article.content
+      %p.card-text!= @article.content
     .card-footer
       .card-footer-left
         %p= user_name(@article)
@@ -13,3 +13,26 @@
             = image_tag 'edit-icon.png', alt: '編集ボタン', class: 'edit'
           = link_to article_path(@article), data: {method: 'delete', confirm: '削除しますか？'} do
             = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'
+    .bubbly-button
+      = image_tag 'heart-active.svg', class: 'like-button-img'
+      %span 1
+
+
+:javascript
+  var animateButton = function(e) {
+
+    e.preventDefault;
+    //reset animation
+    e.target.classList.remove('animate');
+
+    e.target.classList.add('animate');
+    setTimeout(function(){
+      e.target.classList.remove('animate');
+    },700);
+  };
+
+  var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+  for (var i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton, false);
+  }

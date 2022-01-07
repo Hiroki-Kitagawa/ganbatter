@@ -3,7 +3,6 @@
 # Table name: articles
 #
 #  id         :integer          not null, primary key
-#  content    :text
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -21,7 +20,8 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_rich_text :content
+
   validates :user_id, presence: true
   validates :title,   presence: true, length: {maximum: 100}
-  validates :content, presence: true, length: {maximum: 1000}
 end

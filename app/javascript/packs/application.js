@@ -13,5 +13,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require("custom/bootstrap.js")
-require("custom/modal.js")
 require("custom/article.js")
+
+require("trix")
+require("@rails/actiontext")
