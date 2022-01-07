@@ -10,8 +10,7 @@
             %a#dropdownUser1.d-block.link-dark.text-decoration-none.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
               = image_tag 'default-icon.png', alt: 'デフォルトアイコン', class: 'rounded-circle header-dropdown-icon'
             %ul.dropdown-menu.text-small{"aria-labelledby" => "dropdownUser1"}
-              %li
-                %a.dropdown-item{:href => "#"} プロフィール
+              %li= link_to "プロフィール", users_show_path, class: 'dropdown-item'
               %li
                 %hr.dropdown-divider/
               %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item'
