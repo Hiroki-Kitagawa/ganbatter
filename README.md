@@ -7,7 +7,7 @@
 ## Set up
 ```zsh
 $ git clone https://github.com/SonicGardenCamp/ganbatter.git
-$ yarn install
+$ cd ./ganbatter
 $ bundle config set --local without 'production'
 $ bundle install
 $ rails db:migrate

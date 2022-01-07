@@ -3,11 +3,10 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
-    @article   = @articles.first
+    @article  = @articles.first
     if @article
-      @comments  = @article.comments
-     # @comment   = @article.comments.build
-      @comment = Comment.new
+      @comments = @article.comments
+      @comment  = Comment.new
     end
   end
 
@@ -15,7 +14,6 @@ class ArticlesController < ApplicationController
     @article  = @articles.find(params[:id])
     @comments = @article.comments
     @comment = Comment.new
-    #@comment  = @article.comments.build
     render :index
   end
 

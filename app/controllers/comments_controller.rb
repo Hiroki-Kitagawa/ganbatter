@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :set_comments, only: [:index, :show]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def create
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.build(comment_params)
     @articles = Article.all.order(updated_at: :desc)
+    @article = Article.find(params[:article_id])
     @comments = @article.comments
+    @comment = @article.comments.build(comment_params)
+
     if @comment.save
       flash[:success] = "応援できた！"
       redirect_to article_path(@article)
@@ -33,14 +33,11 @@ class CommentsController < ApplicationController
     article = Article.find(params[:article_id])
     article.comments.find(params[:id]).destroy!
     flash[:success] = "もったいない！"
-    redirect_to root_url
+    redirect_to article_path(article)
   end
 
   private
     def comment_params
       params.require(:comment).permit(:content, :user_id, :article_id)
-    end
-    def set_comments
-      @comment = Comment.all.order(updated_at: :desc)
     end
 end
