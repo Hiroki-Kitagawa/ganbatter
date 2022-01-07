@@ -14,3 +14,10 @@ $ rails db:migrate
 $ rails db:seed
 $ rails server
 ```
+
+# Action Text
+```
+$ brew install imagemagick
+$ bundle exec rails action_text:install
+$ bundle exec rails webpacker:install
+```
