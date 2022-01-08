@@ -83,6 +83,10 @@
   background-color: #fff;
 }
 
-.hidden {
-  display: none!important;
+.comment-text-area {
+  display: none;
+}
+
+.card.comment-card.is-open .comment-text-area {
+  display: block;
 }

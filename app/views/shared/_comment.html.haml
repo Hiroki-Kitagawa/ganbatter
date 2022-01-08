@@ -1,7 +1,7 @@
 %ul
   - if @article
     - @comments.each_with_index do |comment, num|
-      %li.card.mb-3
+      %li.card.mb-3.comment-card
         .card-body
           %p.card-text.comment-text= comment.content
         .card-footer
@@ -10,11 +10,11 @@
             = image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar'
           - if user_signed_in? && (current_user.id == comment.user_id)
             .card-footer-right
-              .comment-edit-wrap.show-comment-form{id: "showBtn-#{num}"}
+              .comment-edit-wrap.show-comment-form
                 = image_tag 'edit-icon.png',   alt: '編集ボタン', class: 'edit'
               = link_to article_comment_path(comment.article_id, comment.id), method: 'delete' do
                 = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'
-        .comment-text-area.hidden{id: "editForm-#{num}"}
+        .comment-text-area
           - if user_signed_in?
             = form_with(model: comment, url: article_comment_path(@article.id, comment.id), local: true) do |f|
               - @comment.errors.full_messages.each do |message|

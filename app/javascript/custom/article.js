@@ -2,7 +2,6 @@ import $ from 'jquery'
 
 $(function(){
   $(document).on('click', '.show-comment-form', function(){
-    $(this).addClass("open");
-    window.alert('クリックされました');
+    $(this).parents('.comment-card').toggleClass('is-open')
   });
 });
