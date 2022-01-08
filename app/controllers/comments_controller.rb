@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = @article.comments.build(comment_params)
 
     if @comment.save
-      flash[:success] = "応援できた！"
+      flash[:success] = '応援できた！'
       redirect_to article_path(@article)
     else
       render 'articles/index'
@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
   def update
     @article = current_user.articles.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-    
+
     if @comment.update(comment_params)
-      flash[:success] = "いいね！"
+      flash[:success] = 'いいね！'
       redirect_to root_url
     else
       render 'articles/index'
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   def destroy
     article = Article.find(params[:article_id])
     article.comments.find(params[:id]).destroy!
-    flash[:success] = "もったいない！"
+    flash[:success] = 'もったいない！'
     redirect_to article_path(article)
   end
 

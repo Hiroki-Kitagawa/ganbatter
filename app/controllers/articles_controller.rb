@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:success] = "よし！目標を作成できた！頑張ろう！"
+      flash[:success] = 'よし！目標を作成できた！頑張ろう！'
       redirect_to root_url
     else
       render :new
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
   def update
     @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
-      flash[:success] = "いいね！目標を改善した！頑張れる気がする！"
+      flash[:success] = 'いいね！目標を改善した！頑張れる気がする！'
       redirect_to root_url
     else
       render :edit
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     current_user.articles.find(params[:id]).destroy
-    flash[:success] = "削除してしまった、、次頑張ろう！"
+    flash[:success] = '削除してしまった、、次頑張ろう！'
     redirect_to root_url
   end
 

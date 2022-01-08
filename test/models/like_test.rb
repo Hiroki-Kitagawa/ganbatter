@@ -11,7 +11,7 @@
 #
 #  index_likes_on_article_id  (article_id)
 #
-require "test_helper"
+require 'test_helper'
 
 class LikeTest < ActiveSupport::TestCase
   # test "the truth" do

@@ -1,9 +1,9 @@
 # メインのサンプルユーザーを1人作成する
 user = User.create!(
-  name:  "Example User",
-  email: "example@railstutorial.org",
-  password:              "foobar",
-  password_confirmation: "foobar")
+  name:  'Example User',
+  email: 'example@railstutorial.org',
+  password:              'foobar',
+  password_confirmation: 'foobar')
 
 50.times do
   content = Faker::Lorem.sentence(word_count: 100)
