@@ -11,7 +11,7 @@
                 = image_tag 'heart.svg', class: 'like-button-img'
               - else
                 = image_tag 'heart-active.svg', class: 'like-button-img'
-            %span= article.likes_count
+            %span{id: "article-likes-#{article.id}"}= article.likes_count
         .card-footer
           .card-footer-left
             %p= user_name(article)

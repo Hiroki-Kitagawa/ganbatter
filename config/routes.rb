@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'articles#index'
   resources :articles do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
-    resources :likes, only: [:create]
+    resource :likes, only: [:show, :create]
   end
 
   get 'archives', to: 'articles#archives'

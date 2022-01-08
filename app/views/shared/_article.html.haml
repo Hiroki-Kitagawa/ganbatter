@@ -1,5 +1,5 @@
 - if @article
-  %li.card.mb-3
+  %li.card.mb-3#article-id{data: {article_id: @article.id}}
     .card-body
       %h3.card-title= @article.title
       %p.card-text!= @article.content
@@ -9,7 +9,7 @@
             = image_tag 'heart.svg', class: 'like-button-img'
           - else
             = image_tag 'heart-active.svg', class: 'like-button-img'
-        %span= @likes
+        %span{id: "likes-#{@article.id}"}= @likes
     .card-footer
       .card-footer-left
         %p= user_name(@article)
@@ -23,7 +23,6 @@
 
 :javascript
   var animateButton = function(e) {
-
     e.preventDefault;
     //reset animation
     e.target.classList.remove('animate');
@@ -35,7 +34,6 @@
   };
 
   var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
   for (var i = 0; i < bubblyButtons.length; i++) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
   }
