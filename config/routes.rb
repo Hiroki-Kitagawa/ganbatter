@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
     resources :likes, only: [:create]
   end
+
+  get 'archives', to: 'articles#archives'
 end

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_articles, only: [:index, :show]
+  before_action :set_articles, only: [:index, :show, :archives]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
@@ -51,6 +51,9 @@ class ArticlesController < ApplicationController
     current_user.articles.find(params[:id]).destroy
     flash[:success] = '削除してしまった、、次頑張ろう！'
     redirect_to root_url
+  end
+
+  def archives
   end
 
   private
