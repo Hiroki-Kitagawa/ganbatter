@@ -12,7 +12,7 @@
             .card-footer-right
               .comment-edit-wrap.show-comment-form
                 = image_tag 'edit-icon.png',   alt: '編集ボタン', class: 'edit'
-              = link_to article_comment_path(comment.article_id, comment.id), method: 'delete' do
+              = link_to article_comment_path(comment.article_id, comment.id), data: { method: 'delete', confirm: "削除するの?" } do
                 = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'
         .comment-text-area
           - if user_signed_in?
