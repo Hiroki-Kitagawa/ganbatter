@@ -15,15 +15,19 @@ $ rails db:seed
 $ rails server
 ```
 
-# Action Text追加
+## Action Text追加
 ```
 $ brew install imagemagick
 $ bundle exec rails action_text:install
 $ bundle exec rails webpacker:install
 ```
 
-## webpacker起動
+## axiosをインストール
 ```zsh
 $ yarn add axios
+```
+
+## webpacker起動
+```zsh
 $ bin/webpack-dev-server
 ```

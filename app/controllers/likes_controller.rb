@@ -8,6 +8,7 @@ class LikesController < ApplicationController
 
   def create
     article = Article.find(params[:article_id])
-    @likes = article.likes.create
+    @likes = article.likes.create!
+    render json: { status: 'OK' }
   end
 end

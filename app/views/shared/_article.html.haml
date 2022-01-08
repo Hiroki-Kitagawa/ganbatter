@@ -4,7 +4,7 @@
       %h3.card-title= @article.title
       %p.card-text!= @article.content
       .link-btn-wrapper
-        = button_to article_likes_path(@article), class: 'bubbly-button' do
+        .bubbly-button.create-like-btn
           - if @article.likes_count == 0
             = image_tag 'heart.svg', class: 'like-button-img'
           - else
