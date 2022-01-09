@@ -10,8 +10,8 @@ const DisplayNumberOfLikes = (articleId, LikesCount) => {
 }
 
 $(function(){
-  const dataset = $('#article-id').data()
-  const articleId = dataset.articleId
+  const articleId = $('#article-id').data().articleId
+  const userName = $('#user-name').data().userId
 
   $(document).on('click', '.create-like-btn', function(){
     axios.get(`/articles/${articleId}/likes`)
@@ -42,7 +42,21 @@ $(function(){
           const comment = response.data
           console.log(response)
           $('.comments-container').append(
-            `<li class="card mb-3 comment-card"><div class="card-body"><p class="card-text commment-text">${comment.content}</p></div></li>`
+            `<li class="card mb-3 comment-card">
+              <div class="card-body">
+                <p class="card-text commment-text">${comment.content}</p>
+              </div>
+              <div class="card-footer">
+                <div class="card-footer-left">
+                  <span>${userName}</span>
+                  <img class="avatar" src="/assets/default-icon-5371dcbba240e5f71ed2c0249cced0eeab407a48837e925867671ad21a0dbe46.png" class="avatar">
+                </div>
+                <div class="card-footer-right">
+                  <!-- <div class="comment-edit-wrap show-comment-form"><img class="edit" src="/assets/edit-icon-b30119f17783e56f23c0767ec37c023be80dd20d4dffc842e2e04a4368f068ba.png"></div> -->
+                  <!-- <a><img class="delete" src="/assets/delete-icon-4f68631509ec91921867bbc1cc53c4e0721345c1d1747cb46bb45e78d78c988f.png"></a> -->
+                </div>
+              </div>
+            </li>`
           )
           $('#comment_content_text').val('')
         })
