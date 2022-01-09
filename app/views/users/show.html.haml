@@ -1,9 +1,12 @@
-%h1 about me
+%main.articles
+  .outer.container
+    .row
+      %h1 プロフィール
 
-%h3 user name
-= @user.name
+      .profile-header
+        .profile-header__img
+        .profile-header__info
+          %p= @user.name
+          %p= @user.email
 
-%h3 mail-address
-= @user.email
-
-= button_to "edit", edit_user_registration_path, method: 'get'
+      = link_to "編集する", edit_user_registration_path
