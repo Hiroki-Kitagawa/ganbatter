@@ -24,6 +24,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   validates :name, presence: true
+
+  def display_nickname
+    profile&.nickname || self.name
+  end
+
+  def avatar_image
+    profile&.avatar&.attached? ? profile.avatar : 'default-icon.png'
+  end
 end

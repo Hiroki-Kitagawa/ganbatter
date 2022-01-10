@@ -7,7 +7,7 @@
         .card-footer
           .card-footer-left
             %span= user_name(comment)
-            = image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar'
+            = image_tag 'default-icon.png', alt: 'アイコン', class: 'avatar'
           - if user_signed_in? && (current_user.id == comment.user_id)
             .card-footer-right
               .comment-edit-wrap.show-comment-form
