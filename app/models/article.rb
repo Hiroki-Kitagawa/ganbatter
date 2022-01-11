@@ -23,7 +23,8 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_rich_text :content
   has_many :likes, dependent: :destroy
-
+  has_many :bots
+  
   validates :user_id, presence: true
   validates :title,   presence: true, length: {maximum: 100}
 end
