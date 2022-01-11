@@ -35,4 +35,8 @@ class User < ApplicationRecord
   def avatar_image
     profile&.avatar&.attached? ? profile.avatar : 'default-icon.png'
   end
+
+  def prepare_profile
+    profile || build_profile
+  end
 end
