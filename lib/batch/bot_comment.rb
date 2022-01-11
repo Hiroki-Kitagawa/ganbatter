@@ -1,6 +1,6 @@
 require 'clockwork'
 # clockwork内でRailsを使う設定をする
-require File.expand_path('../ganbatter/config/boot')
+# require File.expand_path('../ganbatter/config/boot')
 require File.expand_path('../ganbatter/config/environment')
 
 module Clockwork

@@ -22,6 +22,30 @@ funashi.articles.create!(
   content: 'ふなっしー共和国を作って、ふなっしーの国を作るなっしー'
 )
 
+# ドラえもん
+funashi = User.create!(
+  name:  'ドラえもん',
+  email: 'ddrae@example.com',
+  password:              'foobar',
+  password_confirmation: 'foobar'
+)
+funashi.articles.create!(
+  title: 'のび太くんを更正させて、1人前にさせたい',
+  content: 'のび太くんはだらしないので、これからは僕が心を鬼にしよう'
+)
+
+# アンパンマン
+funashi = User.create!(
+  name:  'アンパンマン',
+  email: 'anpan@example.com',
+  password:              'foobar',
+  password_confirmation: 'foobar'
+)
+funashi.articles.create!(
+  title: '世界をアンパンで満たしたい',
+  content: '朝、昼、晩、3食アンパンが食べれる世界にしたい'
+)
+
 # Botのサンプルデータを作成する
 Bot.create!(
   bot_name:    'kitasan',
