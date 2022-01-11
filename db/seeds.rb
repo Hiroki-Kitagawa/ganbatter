@@ -1,15 +1,14 @@
-# メインのサンプルユーザーを1人作成する
-user = User.create!(
-  name:  "Example User",
-  email: "example@railstutorial.org",
-  password:              "foobar",
-  password_confirmation: "foobar")
-
-50.times do
-  content = Faker::Lorem.sentence(word_count: 100)
-  title   = Faker::Lorem.sentence(word_count: 5)
-  user.articles.create!(content: content, title: title)
-end
+# くまもん
+kumamon = User.create!(
+  name:  'くまもん',
+  email: 'kumamon@example.com',
+  password:              'foobar',
+  password_confirmation: 'foobar'
+)
+kumamon.articles.create!(
+  title: '熊本城で住めるくらいお金持ちになるもん',
+  content: '熊本県をもっと豊かにしてやるもん、馬刺し食べたい'
+)
 
 # Botのサンプルデータを作成する
 Bot.create!(
@@ -61,3 +60,15 @@ Bot.create!(
   bot_name:    "gakkii",
   bot_img:     "gakkii.jpg",
   bot_content: "十六茶、飲めよ？")
+
+# ふなっしー
+funashi = User.create!(
+  name:  'ふなっしー',
+  email: 'funashi@example.com',
+  password:              'foobar',
+  password_confirmation: 'foobar'
+)
+funashi.articles.create!(
+  title: 'くまモンより人気になるなっしー',
+  content: 'ふなっしー共和国を作って、ふなっしーの国を作るなっしー'
+)

@@ -1,8 +1,7 @@
-require('jquery')
+import $ from 'jquery'
 
-$(document).on('turbolinks:load', function() {
-  $('.show-comment-form').on('click', () => {
-    $('.show-comment-form').toggleClass('hidden')
-    $('.comment-text-area').toggleClass('hidden')
-  })
+$(function(){
+  $(document).on('click', '.show-comment-form', function(){
+    $(this).parents('.comment-card').toggleClass('is-open')
+  });
 });

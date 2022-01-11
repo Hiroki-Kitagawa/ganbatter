@@ -18,6 +18,57 @@
 @import "base";
 @import "header";
 @import "articles";
-@import "modal";
 @import "devise";
 @import 'like-btn';
+@import 'profiles';
+
+.archives-heading {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  padding: .25em 1em;
+  margin: 20px 0 40px;
+  border: dashed 1px #fff;
+  background: #c8e4ff;
+  box-shadow: 0 0 0 5px #c8e4ff;
+  color: #454545;
+}
+
+.btn-square {
+  display: block;
+  padding: 0.5em 1em;
+  margin-top: 60px;
+  text-decoration: none;
+  background: #4f9df4;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 16px;
+
+  &:hover {
+    background: rgba($color: #1984ff, $alpha: 1.0);
+  }
+}
+
+.btn-blue-bc {
+  background: #4f9df4;
+  margin: 0.5em 0.5em 0.5em 0;
+  display: inline-block;
+  margin: 0.5em 0;
+  padding: 0.4em 1.3em;
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: 0.3s ease-in-out;
+  text-decoration: none !important;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: .2);
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba($color: #000000, $alpha: .3);
+  }
+}

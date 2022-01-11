@@ -5,17 +5,15 @@ $baby-blue: #f8faff;
 
 .bubbly-button{
   font-size: 1em;
-  padding: 1em 2em;
+  padding: 1em 1em 1em 2em;
   -webkit-appearance: none;
   appearance: none;
-  // background-color: $button-bg;
   color: $button-text-color;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  // box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
   width: 20px;
   height: 20px;
 
@@ -64,13 +62,10 @@ $baby-blue: #f8faff;
     radial-gradient(circle, $button-bg 35%, transparent 35%),
     radial-gradient(circle, $button-bg 35%, transparent 35%);
     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-  //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
   }
 
   &:active{
     transform: scale(0.9);
-    // background-color: darken($button-bg, 5%);
-    // box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
   }
 
   &.animate{
@@ -83,9 +78,40 @@ $baby-blue: #f8faff;
       animation: bottomBubbles ease-in-out 0.75s forwards;
     }
   }
+}
+
+.like-btn {
+  padding: 1em 1em 1em 2em;
+  -webkit-appearance: none;
+  appearance: none;
+  color: $button-text-color;
+  border-radius: 4px;
+  border: none;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  width: 20px;
+  height: 20px;
+}
+
+.like-button-img {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.link-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
 
   span {
+    display: block;
     color: #333;
+    font-size: 16px;
+    align-self: flex-end;
   }
 }
 
@@ -113,13 +139,4 @@ $baby-blue: #f8faff;
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
     background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
   }
-}
-
-.like-button-img {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
