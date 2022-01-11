@@ -12,17 +12,18 @@ module Clockwork
     bot_id    = rand(1..bot_count)
     bot       = Bot.find(bot_id)
     # Botがコメントするarticle情報を取得する
-    article = Article.last
-    # Botがコメントする
-    comment = article.comments.build(
-      bot_id:     bot.id,
-      bot_name:   bot.bot_name,
-      img:        bot.bot_img,
-      content:    bot.bot_content,
-      article_id: article.id,
-      user_id:    article.user_id
-    )
-    comment.save
+    Article.where("likes_count <= 5").each do |article|
+      # Botがコメントする
+      comment = article.comments.build(
+        bot_id:     bot.id,
+        bot_name:   bot.bot_name,
+        img:        bot.bot_img,
+        content:    bot.bot_content,
+        article_id: article.id,
+        user_id:    article.user_id
+      )
+      comment.save
+    end
     puts 'Bot finish running!'
   end
 
