@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users, controllers: {
-    sessions: "users/sessions",
-    registrations: "users/registrations"
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
-  root to: "articles#index"
+  root to: 'articles#index'
+  get 'archives', to: 'articles#archives'
+
   resources :articles do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
-    resources :likes, only: [:create]
+    resource :likes, only: [:show, :create]
   end
 
   resources :ranks, only: [:new]
+  resource :profile, only: [:show, :edit, :update]
 end

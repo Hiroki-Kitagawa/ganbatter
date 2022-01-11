@@ -5,32 +5,14 @@
         .card-body
           %h3.card-title= article.title.truncate(20)
           %p.card-text!= article.content
+          .link-btn-wrapper
+            .like-btn
+              - if article.likes_count == 0
+                = image_tag 'heart.svg', class: 'like-button-img'
+              - else
+                = image_tag 'heart-active.svg', class: 'like-button-img'
+            %span{id: "article-likes-#{article.id}"}= article.likes_count
         .card-footer
           .card-footer-left
             %p= user_name(article)
-            = image_tag 'default-icon.png', alt: 'デフォルトアバター画像', class: 'avatar'
-      .bubbly-button
-        - if article.likes_count == 0
-          = image_tag 'heart.svg', class: 'like-button-img'
-        - else
-          = image_tag 'heart-active.svg', class: 'like-button-img'
-      %span= article.likes_count
-
-:javascript
-  var animateButton = function(e) {
-
-    e.preventDefault;
-    //reset animation
-    e.target.classList.remove('animate');
-
-    e.target.classList.add('animate');
-    setTimeout(function(){
-      e.target.classList.remove('animate');
-    },700);
-  };
-
-  var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
-  for (var i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton, false);
-  }
+            = image_tag 'default-icon.png', alt: 'アイコン', class: 'avatar'

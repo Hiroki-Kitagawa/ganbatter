@@ -12,7 +12,6 @@
 #
 # Indexes
 #
-#  index_articles_on_bot_id                  (bot_id)
 #  index_articles_on_user_id                 (user_id)
 #  index_articles_on_user_id_and_created_at  (user_id,created_at)
 #
@@ -24,7 +23,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_rich_text :content
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :bots
 
   validates :user_id, presence: true
