@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_055902) do
+ActiveRecord::Schema.define(version: 2022_01_10_150651) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -56,8 +56,18 @@ ActiveRecord::Schema.define(version: 2022_01_07_055902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "likes_count", default: 0
+    t.integer "bot_id", default: 0
+    t.index ["bot_id"], name: "index_articles_on_bot_id"
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "bots", force: :cascade do |t|
+    t.string "bot_img"
+    t.string "bot_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "bot_name"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -66,7 +76,11 @@ ActiveRecord::Schema.define(version: 2022_01_07_055902) do
     t.integer "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "img"
+    t.integer "bot_id", default: 0
+    t.string "bot_name"
     t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["bot_id"], name: "index_comments_on_bot_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
