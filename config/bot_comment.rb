@@ -1,7 +1,5 @@
 require 'clockwork'
 # clockwork内でRailsを使う設定をする
-# require File.expand_path('./config/boot')
-# require File.expand_path('./config/environment')
 require File.expand_path('../boot', __FILE__)
 require File.expand_path('../environment', __FILE__)
 
