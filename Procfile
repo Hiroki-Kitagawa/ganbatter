@@ -1,2 +1,2 @@
 web: bundle exec puma -C config/puma.rb
-clock: bundle exec clockwork ./lib/batch/bot_comment.rb
+clock: clockworkd -c bot_comment.rb start --log
