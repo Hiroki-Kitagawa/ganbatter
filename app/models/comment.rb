@@ -15,7 +15,6 @@
 # Indexes
 #
 #  index_comments_on_article_id  (article_id)
-#  index_comments_on_bot_id      (bot_id)
 #  index_comments_on_user_id     (user_id)
 #
 # Foreign Keys

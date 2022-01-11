@@ -6,7 +6,7 @@ require File.expand_path('..\ganbatter\config\environment')
 module Clockwork
 
   handler do |job|
-    puts "Bot start running!"
+    puts 'Bot start running!'
     # Bot情報を取得する
     bot_count = Bot.count
     bot_id    = rand(1..bot_count)
@@ -23,7 +23,7 @@ module Clockwork
       user_id:    article.user_id
     )
     comment.save
-    puts "Bot finish running!"
+    puts 'Bot finish running!'
   end
 
   every(3.seconds, 'Bot')

@@ -1,5 +1,5 @@
 class Batch::BotComment
-  
+
   def initialize
   end
 

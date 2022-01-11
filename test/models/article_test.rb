@@ -12,7 +12,6 @@
 #
 # Indexes
 #
-#  index_articles_on_bot_id                  (bot_id)
 #  index_articles_on_user_id                 (user_id)
 #  index_articles_on_user_id_and_created_at  (user_id,created_at)
 #
