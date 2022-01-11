@@ -1,7 +1,7 @@
 require 'clockwork'
 # clockwork内でRailsを使う設定をする
-require File.expand_path('..\ganbatter\config\boot')
-require File.expand_path('..\ganbatter\config\environment')
+require File.expand_path('../ganbatter/config/boot')
+require File.expand_path('../ganbatter/config/environment')
 
 module Clockwork
 
@@ -26,5 +26,5 @@ module Clockwork
     puts 'Bot finish running!'
   end
 
-  every(3.seconds, 'Bot')
+  every(1.hour, 'Bot')
 end
