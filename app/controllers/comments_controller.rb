@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    article = current_user.articles.find(params[:article_id])
+    article  = Article.find(params[:article_id])
     @comment = article.comments.find(params[:id])
 
     if @comment.update(comment_params)
