@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     resource :likes, only: [:show, :create]
   end
 
-  resource :profile, only: [:show, :edit, :update]
   resources :ranks, only: [:new]
+  resource :profile, only: [:show, :edit, :update]
 end

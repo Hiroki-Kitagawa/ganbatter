@@ -6,6 +6,7 @@
           %li= link_to 'ホーム', root_path, class: 'nav-link link-dark px-2'
           %li= link_to 'みんなの目標一覧', archives_path, class: 'nav-link link-dark px-2'
           %li= link_to '目標を投稿してみる', new_article_path, class: 'nav-link link-dark px-2'
+          %li= link_to 'がんばったーランキング TOP 3', new_rank_path, class: 'nav-link link-dark px-2'
         - if user_signed_in?
           .dropdown.text-end
             %a#dropdownUser1.d-block.link-dark.text-decoration-none.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
