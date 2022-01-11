@@ -23,7 +23,7 @@
 #  article_id  (article_id => articles.id)
 #  user_id     (user_id => users.id)
 #
-require "test_helper"
+require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
   # test "the truth" do

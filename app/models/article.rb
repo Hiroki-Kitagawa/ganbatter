@@ -24,7 +24,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_rich_text :content
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :bots
 
   validates :user_id, presence: true

@@ -2,7 +2,7 @@
   .row
     .form-signin
       .devise-form
-        %h1.h3.mb-3.fw-normal Log in
+        %h1.h3.mb-3.fw-normal ログイン
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .form-item
             = f.label :Email
@@ -10,6 +10,6 @@
           .form-item
             = f.label :password
             = f.password_field :password, autocomplete: "current-password", class: 'form-control', id: 'floatingPassword'
-          .actions.w-100.btn.btn-lg.btn-primary
-            = f.submit "Log in"
+          .actions.w-100.btn-square
+            = f.submit "ログイン"
         = render "devise/shared/links"
