@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def archives
-    @articles = Article.paginate(page: params[:page])
+    @articles = Article.all.order(updated_at: :desc).paginate(page: params[:page])
   end
 
   private
@@ -64,6 +64,6 @@ class ArticlesController < ApplicationController
     end
 
     def set_articles
-      @articles = Article.all.order(updated_at: :desc)
+      @articles = Article.all.order(updated_at: :desc).paginate(page: params[:page])
     end
 end
