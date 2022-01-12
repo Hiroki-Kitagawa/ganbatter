@@ -8,7 +8,7 @@
           .card-footer-left
             %span= bot_name(comment) || user_name(comment)
             -# image_tagのsrcは要修正 2022.01.10
-            = image_tag comment.img || 'default-icon.png', alt: 'アバター画像', class: 'avatar'
+            = image_tag comment.img || comment.user.avatar_image, alt: 'アバター画像', class: 'avatar'
           - if user_signed_in? && (current_user.id == comment.user_id) && comment.bot_id.zero?
             .card-footer-right
               .comment-edit-wrap.show-comment-form
