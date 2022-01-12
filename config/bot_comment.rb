@@ -2,15 +2,14 @@ require 'clockwork'
 # clockwork内でRailsを使う設定をする
 require File.expand_path('../boot', __FILE__)
 require File.expand_path('../environment', __FILE__)
+require './app/models/bot.rb'
 
 module Clockwork
 
   handler do |job|
     puts 'Bot start running!'
-    # Bot情報を取得する
-    bot_count = Bot.count
-    bot_id    = rand(1..bot_count)
-    bot       = Bot.find(bot_id)
+    # 任意にコメントするBot情報を取得する
+    bot = Bot.find_bot
     # Botがコメントするarticle情報を取得する
     Article.where("likes_count <= 5").each do |article|
       # Botがコメントする
@@ -23,9 +22,10 @@ module Clockwork
         user_id:    article.user_id
       )
       comment.save
+      bot = Bot.find_bot
     end
     puts 'Bot finish running!'
   end
 
-  every(2.hours, 'Bot')
+  every(3.seconds, 'Bot')
 end

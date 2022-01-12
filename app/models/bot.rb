@@ -11,4 +11,11 @@
 #
 class Bot < ApplicationRecord
   has_many :comments, dependent: :destroy
+
+  def self.find_bot
+    # 任意にコメントするBot情報を取得する
+    bot_count = Bot.count
+    bot_id    = rand(1..bot_count)
+    bot       = Bot.find(bot_id)
+  end
 end
