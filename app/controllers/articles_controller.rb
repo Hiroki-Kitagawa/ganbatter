@@ -54,6 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def archives
+    @articles = Article.paginate(page: params[:page])
   end
 
   private
