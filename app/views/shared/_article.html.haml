@@ -13,7 +13,7 @@
     .card-footer
       .card-footer-left
         %p= user_name(@article)
-        = image_tag 'default-icon.png', alt: 'アイコン', class: 'avatar'
+        = image_tag @article.user.avatar_image, alt: 'アイコン', class: 'avatar'
       - if user_signed_in? && current_user.articles.exists?(id: @article.id)
         .card-footer-right
           = link_to edit_article_path(@article) do

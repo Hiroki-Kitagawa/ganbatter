@@ -46,6 +46,25 @@ funashi.articles.create!(
   content: '朝、昼、晩、3食アンパンが食べれる世界にしたい'
 )
 
+
+# pagination test
+100.times do |n|
+  name = "#{n} Example User"
+  email = "example-#{n}@exampleuser.com"
+  password = "password"
+  create_user = User.create!(name: name,
+               email: email,
+               password: password,
+               password_confirmation: password
+              )
+  create_user.articles.create!(
+    title: n,
+    content: n
+  )
+end
+
+
+
 # Botのサンプルデータを作成する
 Bot.create!(
   bot_name:    'kitasan',
