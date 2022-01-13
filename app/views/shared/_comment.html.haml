@@ -18,11 +18,11 @@
         .comment-text-area
           - if user_signed_in?
             = form_with(model: comment, url: article_comment_path(@article.id, comment.id), local: true) do |f|
-              - @comment.errors.full_messages.each do |message|
+              - comment.errors.full_messages.each do |message|
                 %li= message
               .form-edit-comment
                 %div
                   = f.hidden_field :user_id, :value => current_user.id
                   = f.hidden_field :article_id, :value => @article.id
-                  = f.text_area :content, class: 'form-control'
+                  = f.text_area :content, class: 'form-control', required: true
                 = f.submit '編集する', class: "btn-blue-bc"
