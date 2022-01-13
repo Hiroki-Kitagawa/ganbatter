@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   resources :ranks, only: [:index]
   resource :profile, only: [:show, :edit, :update]
+  resources :users, only: [:show]
 end
