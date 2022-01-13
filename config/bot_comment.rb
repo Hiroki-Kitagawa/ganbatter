@@ -11,7 +11,7 @@ module Clockwork
     # 任意にコメントするBot情報を取得する
     bot = Bot.find_bot
     # Botがコメントするarticle情報を取得する
-    Article.where("likes_count <= 5").each do |article|
+    Article.where('likes_count <= 5').each do |article|
       # Botがコメントする
       comment = article.comments.build(
         bot_id:     bot.id,

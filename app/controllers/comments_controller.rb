@@ -2,24 +2,28 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def create
-    article = Article.find(params[:article_id])
-    @comments = article.comments
+    @articles = Article.all.order(updated_at: :desc)
+    @article = Article.find(params[:article_id])
+    @comments = Article.find(params[:article_id]).comments
+    @comment = @article.comments.build(comment_params)
 
-    @comment = article.comments.build(comment_params)
-    @comment.user_id = current_user.id
-    @comment.article_id = article.id
-    @comment.save!
-
-    render json: @comment, each_serializer: CommentsSerializer
+    if @comment.save
+      flash[:success] = '応援できた！'
+      redirect_to article_path(@article)
+    else
+      render 'articles/index'
+    end
   end
 
   def update
-    article  = Article.find(params[:article_id])
-    @comment = article.comments.find(params[:id])
+    @articles = Article.all.order(updated_at: :desc)
+    @article = Article.find(params[:article_id])
+    @comments = Article.find(params[:article_id]).comments
+    @comment = @article.comments.build(comment_params)
 
     if @comment.update(comment_params)
       flash[:success] = 'いいね！'
-      redirect_to root_url
+      redirect_to article_path(@article)
     else
       render 'articles/index'
     end
@@ -34,6 +38,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content, :user_id, :article_id)
     end
 end

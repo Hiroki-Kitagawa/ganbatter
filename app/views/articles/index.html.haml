@@ -8,8 +8,14 @@
         = render 'shared/comment'
         .comments-container
         - if user_signed_in? && @article
-          .form-container
-            = text_area_tag :comment_content_text, '', class: 'form-control'
-            .btn-blue-bc.add-comment-button#user-name{data: {user_id: current_user.name}} 応援する
+          = form_with(model: @comment, url: article_comments_path(@article.id), local: true) do |f|
+            - @comment.errors.full_messages.each do |message|
+              %li= message
+            .form-signin
+              .mb-3
+                = f.hidden_field :user_id, :value => current_user.id
+                = f.hidden_field :article_id, :value => @article.id
+                = f.text_area :content, class: 'form-control', required: true
+              = f.submit '応援する', class: "btn-blue-bc add-comment-button"
 
 = javascript_pack_tag 'like'

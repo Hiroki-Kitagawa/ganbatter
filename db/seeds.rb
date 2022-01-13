@@ -46,7 +46,7 @@ test_users.each_with_index do |test_user, second_element|
       password:              test_user[2],
       password_confirmation: test_user[3]
     )
-  
+
     test_users_articles[second_element].each do |article|
       created_user.articles.create!(
         title:   article[0],
