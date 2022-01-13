@@ -76,6 +76,7 @@ bot_array = [
   ['IKKO', 'IKKO.jpg', 'どんだけ～'],
   ['ポール・グレアム', 'Paulgraham.jpg', 'プログラムは、人々がそれを読むために書かれるべきである。たまたま、それが計算機で実行できるにすぎない。']
 ]
+
 # Botのサンプルデータを作成する
 bot_array.each do |bot|
   Bot.create!(

@@ -1,4 +1,5 @@
 - if @article
+  =# will_paginate
   - @articles.each do |article|
     %li.card.mb-3.is-active
       = link_to article_path(article) do
@@ -15,4 +16,5 @@
         .card-footer
           .card-footer-left
             %p= user_name(article)
-            = image_tag 'default-icon.png', alt: 'アイコン', class: 'avatar'
+            = image_tag article.user.avatar_image, alt: 'アイコン', class: 'avatar'
+  = will_paginate
