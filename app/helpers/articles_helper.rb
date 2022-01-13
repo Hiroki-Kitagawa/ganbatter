@@ -3,10 +3,12 @@ module ArticlesHelper
     User.find_by(id: article.user_id).name
   end
 
+  def user_nickname(article)
+    User.find_by(id: article.user_id).profile&.nickname
+  end
+
   def bot_name(article)
     bot = Bot.find_by(id: article.bot_id)
-    # Botがコメントしていない場合、実在するユーザー名を
-    # Botがコメントしている場合、Bot名を表示する
-    bot.nil? ? user_name(article) : bot.bot_name
+    bot&.bot_name
   end
 end

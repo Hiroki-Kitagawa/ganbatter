@@ -29,5 +29,5 @@
                 %span{id: "article-likes-#{article.id}"}= article.likes_count
             .card-footer
               .card-footer-left
-                %p= user_name(article)
+                %p= user_nickname(article) || user_name(article)
                 = image_tag current_user.avatar_image, alt: 'アイコン', class: 'avatar'
