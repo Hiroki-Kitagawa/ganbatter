@@ -10,5 +10,5 @@
           = f.text_field :title, class: 'form-control'
         .mb-3
           = f.label :内容
-          = f.rich_text_area :content, class: 'form-control rich-text-area'
+          != f.rich_text_area :content, class: 'form-control rich-text-area'
         = f.submit '送信する', class: "btn-blue-bc"
