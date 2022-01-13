@@ -115,7 +115,7 @@
 }
 
 .form-control.rich-text-area {
-  height: 300px;
+  min-height: 300px;
 
   &:focus {
     color: #212529;
