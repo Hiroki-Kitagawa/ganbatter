@@ -13,7 +13,8 @@
     .card-footer
       .card-footer-left
         %p= nickname_or_name(@article)
-        = image_tag @article.user.avatar_image, alt: 'アイコン', class: 'avatar'
+        = link_to user_path(@article.user_id) do
+          = image_tag @article.user.avatar_image, alt: 'アイコン', class: 'avatar'
       - if user_signed_in? && current_user.articles.exists?(id: @article.id)
         .card-footer-right
           = link_to edit_article_path(@article) do
