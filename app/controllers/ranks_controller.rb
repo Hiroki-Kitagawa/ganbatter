@@ -1,5 +1,5 @@
 class RanksController < ApplicationController
-  def new
+  def index
     @articles = Article.order(likes_count: :desc)
     @ranks = @articles.first(3)
   end
