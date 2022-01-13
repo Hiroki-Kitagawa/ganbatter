@@ -19,5 +19,8 @@
             .card-footer
               .card-footer-left
                 %p= nickname_or_name(article)
+                / same as articles
+                / (cf. app/views/shared/_articles.html.haml)
+                /= link_to user_path(article.user_id) do
                 = image_tag article.user.avatar_image, alt: 'アイコン', class: 'avatar'
     = will_paginate
