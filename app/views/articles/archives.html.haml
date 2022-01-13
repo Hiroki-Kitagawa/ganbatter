@@ -18,6 +18,6 @@
                 %span= article.likes_count
             .card-footer
               .card-footer-left
-                %p= user_nickname(article) || user_name(article)
+                %p= nickname_or_name(article)
                 = image_tag article.user.avatar_image, alt: 'アイコン', class: 'avatar'
     = will_paginate
