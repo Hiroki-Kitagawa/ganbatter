@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @articles = Article.all.order(updated_at: :desc)
     @article = Article.find(params[:article_id])
     @comments = Article.find(params[:article_id]).comments
-    @comment = @article.comments.build(comment_params)
+    @comment = @article.comments.find(params[:id])
 
     if @comment.update(comment_params)
       flash[:success] = 'いいね！'
