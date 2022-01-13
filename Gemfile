@@ -6,6 +6,7 @@ ruby '3.0.3'
 gem 'active_model_serializers'
 gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootstrap-will_paginate'
 gem 'clockwork'
 gem 'devise'
 gem 'faker'
@@ -17,7 +18,6 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
