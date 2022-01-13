@@ -27,5 +27,5 @@ module Clockwork
     puts 'Bot finish running!'
   end
 
-  every(3.seconds, 'Bot')
+  every(2.hours, 'Bot')
 end
