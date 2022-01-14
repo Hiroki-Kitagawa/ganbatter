@@ -13,6 +13,7 @@
             - else
               = image_tag comment.img, alt: 'アバター画像', class: 'avatar'
           - if login_and_commented_user?(comment)
+
             .card-footer-right
               .comment-edit-wrap.show-comment-form
                 = image_tag 'edit-icon.png',   alt: '編集ボタン', class: 'edit'
