@@ -126,3 +126,12 @@ bot_array.each do |bot|
     bot_content: bot[2]
   )
 end
+
+# プロフィール用テンプレ
+aa_image_path = Rails.root.join("app/assets/images", "")
+user.build_profile(
+  nickname: '',
+  introduction: '',
+)
+user.profile.avatar.attach(io: File.open(aa_image_path), filename: '')
+user.profile.save!
