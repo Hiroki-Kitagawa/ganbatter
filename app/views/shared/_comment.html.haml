@@ -6,10 +6,13 @@
           %p.card-text.comment-text= comment.content
         .card-footer
           .card-footer-left
-            %p= bot_name(comment) || nickname_or_name(comment)
-            -# image_tagのsrcは要修正 2022.01.10
-            = image_tag comment.img || comment.user.avatar_image, alt: 'アバター画像', class: 'avatar'
-          - if user_signed_in? && (current_user.id == comment.user_id) && comment.bot_id.zero?
+            %p= bot_or_user_name(comment)
+            - if comment.bot_id.zero?
+              = link_to user_path(comment.user_id) do
+                = image_tag comment.user.avatar_image, alt: 'アバター画像', class: 'avatar'
+            - else
+              = image_tag comment.img, alt: 'アバター画像', class: 'avatar'
+          - if login_and_commented_user?(comment)
             .card-footer-right
               .comment-edit-wrap.show-comment-form
                 = image_tag 'edit-icon.png',   alt: '編集ボタン', class: 'edit'
