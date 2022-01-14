@@ -24,5 +24,7 @@ $(function(){
         window.alert('Error!consoleを確認')
         console.log(e)
       })
+
+    $(this).children().attr('src', '/assets/heart-active-e7833fbee68ee340a01fb8033e7d3ff1214ece9c35dbddd4e6c84070e2788e3c.svg')
   })
 })

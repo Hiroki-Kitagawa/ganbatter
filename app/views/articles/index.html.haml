@@ -3,6 +3,7 @@
     .row
       %ul.home-left.col-4
         = render 'shared/articles'
+        = link_to 'もっと見る', archives_path, class: 'more-btn'
       .home-right.col-8
         = render 'shared/article'
         = render 'shared/comment'
