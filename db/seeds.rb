@@ -4,10 +4,10 @@
 # test_users[2] = password
 # test_users[3] = password_confirmation
 test_users = [
-  ['くまもん', 'kumamon@example.com', 'foobar', 'foobar'],
-  ['ふなっしー', 'funashi@example.com', 'foobar', 'foobar'],
-  ['ドラえもん', 'ddrae@example.com', 'foobar', 'foobar'],
-  ['アンパンマン', 'anpan@example.com', 'foobar', 'foobar']
+  ['くまもん', 'kumamon@example.com', 'foobar', 'foobar', 'kumamon.jpeg'],
+  ['ふなっしー', 'funashi@example.com', 'foobar', 'foobar', 'funassyi.png'],
+  ['ドラえもん', 'ddrae@example.com', 'foobar', 'foobar', 'doraemon.png'],
+  ['アンパンマン', 'anpan@example.com', 'foobar', 'foobar', 'anpanman.png']
 ]
 # Articleのサンプルデータを定義する
 # test_users_articles[0] = title
@@ -87,6 +87,14 @@ test_users.each_with_index do |test_user, second_element|
       password_confirmation: test_user[3]
     )
 
+    image_path = Rails.root.join("app/assets/images", test_user[4])
+    created_user.build_profile(
+      nickname: test_user[0],
+      introduction: "I am #{test_user[0]}.",
+    )
+    created_user.profile.avatar.attach(io: File.open(image_path), filename: test_user[4])
+    created_user.profile.save!
+
     test_users_articles[second_element].each do |article|
       created_user.articles.create!(
         title:   article[0],
@@ -127,11 +135,3 @@ bot_array.each do |bot|
   )
 end
 
-# プロフィール用テンプレ
-aa_image_path = Rails.root.join("app/assets/images", "")
-user.build_profile(
-  nickname: '',
-  introduction: '',
-)
-user.profile.avatar.attach(io: File.open(aa_image_path), filename: '')
-user.profile.save!
