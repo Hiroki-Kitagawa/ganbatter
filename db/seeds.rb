@@ -80,25 +80,33 @@ test_users_articles = [
 ]
 # Userのサンプルデータを作成する
 test_users.each_with_index do |test_user, second_element|
+    name = test_user[0]
+    email = test_user[1]
+    password = test_user[2]
+    image_name = test_user[4]
+
+    title = article[0]
+    content = article[1]
+
     created_user = User.create!(
-      name:                  test_user[0],
-      email:                 test_user[1],
-      password:              test_user[2],
-      password_confirmation: test_user[3]
+      name:                  name,
+      email:                 email,
+      password:              password,
+      password_confirmation: password
     )
 
-    image_path = Rails.root.join("app/assets/images", test_user[4])
+    image_path = Rails.root.join("app/assets/images", image_name)
     created_user.build_profile(
-      nickname: test_user[0],
-      introduction: "I am #{test_user[0]}.",
+      nickname: name,
+      introduction: "I am #{name}.",
     )
-    created_user.profile.avatar.attach(io: File.open(image_path), filename: test_user[4])
+    created_user.profile.avatar.attach(io: File.open(image_path), filename: image_name)
     created_user.profile.save!
 
     test_users_articles[second_element].each do |article|
       created_user.articles.create!(
-        title:   article[0],
-        content: article[1]
+        title:   title,
+        content: content
       )
     end
 end
