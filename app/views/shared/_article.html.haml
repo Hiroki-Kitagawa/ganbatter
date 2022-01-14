@@ -19,9 +19,11 @@
         .card-footer-right
           = link_to edit_article_path(@article) do
             = image_tag 'edit-icon.png', alt: '編集ボタン', class: 'edit'
-          = link_to article_path(@article), data: {method: 'delete', confirm: '削除しますか？'} do
+          %div{"data-micromodal-trigger" => "modal-#{@article.id}"}
             = image_tag 'delete-icon.png', alt: '削除ボタン', class: 'delete'
+    = render 'shared/modal', article: @article
 
+= javascript_pack_tag 'micromodal'
 :javascript
   var animateButton = function(e) {
     e.preventDefault;

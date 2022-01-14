@@ -1,0 +1,17 @@
+.modal.micromodal-slide{id: "modal-#{article.id}", "aria-hidden" => "true"}
+  .modal__overlay{"data-micromodal-close" => "", :tabindex => "-1"}
+    .modal__container{"aria-labelledby" => "modal-1-title", "aria-modal" => "true", :role => "dialog"}
+      %header.modal__header
+        %h2#modal-1-title.modal__title
+          Micromodal
+        %button.modal__close{"aria-label" => "Close modal", "data-micromodal-close" => ""}
+      %main#modal-1-content.modal__content
+        %p
+          Try hitting the
+          %code tab
+          key and notice how the focus stays within the modal itself. Also,
+          %code esc
+          to close modal.
+      %footer.modal__footer
+        %button.modal__btn.modal__btn-primary Continue
+        %button.modal__btn{"aria-label" => "Close this dialog window", "data-micromodal-close" => ""} Close
