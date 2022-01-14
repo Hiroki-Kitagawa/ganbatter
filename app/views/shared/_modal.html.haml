@@ -2,16 +2,8 @@
   .modal__overlay{"data-micromodal-close" => "", :tabindex => "-1"}
     .modal__container{"aria-labelledby" => "modal-1-title", "aria-modal" => "true", :role => "dialog"}
       %header.modal__header
-        %h2#modal-1-title.modal__title
-          Micromodal
-        %button.modal__close{"aria-label" => "Close modal", "data-micromodal-close" => ""}
+        = image_tag 'delete-eva.jpeg'
       %main#modal-1-content.modal__content
-        %p
-          Try hitting the
-          %code tab
-          key and notice how the focus stays within the modal itself. Also,
-          %code esc
-          to close modal.
-      %footer.modal__footer
-        %button.modal__btn.modal__btn-primary Continue
-        %button.modal__btn{"aria-label" => "Close this dialog window", "data-micromodal-close" => ""} Close
+      .modal__footer
+        = link_to '逃げる', article_path(article), data: {method: 'delete', confirm: '削除しますか？'}, class: 'modal__btn modal__btn-primary'
+        %button.modal__btn{"aria-label" => "Close this dialog window", "data-micromodal-close" => ""} 逃げない

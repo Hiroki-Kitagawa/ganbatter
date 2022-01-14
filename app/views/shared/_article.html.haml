@@ -10,6 +10,7 @@
           - else
             = image_tag 'heart-active.svg', class: 'like-button-img'
         %span{id: "likes-#{@article.id}"}= @likes
+      %p.card-time-text= "#{time_ago_in_words(@article.created_at)}前"
     .card-footer
       .card-footer-left
         %p= nickname_or_name(@article)

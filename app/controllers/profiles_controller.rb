@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     @profile.assign_attributes(profile_params)
 
     if @profile.save
-      flash[:success] = 'いいね！'
+      flash[:success] = 'プロフィールを作成したよ！いいね！'
       redirect_to profile_path
     else
       render :edit

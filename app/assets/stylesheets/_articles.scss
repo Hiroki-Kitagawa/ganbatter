@@ -18,6 +18,10 @@
 }
 
 .articles {
+  .card-body {
+    padding: 16px 16px 6px 16px;
+  }
+
   .card-title {
     font-size: 20px;
     font-weight: bold;
@@ -124,4 +128,9 @@
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   }
+}
+
+.card-time-text {
+  font-size: 12px;
+  margin-top: 6px;
 }

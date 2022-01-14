@@ -1,10 +1,6 @@
 /**************************\
   モーダル
 \**************************/
-
-.modal {
-}
-
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -54,7 +50,6 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   line-height: 1.5;
-  color: rgba(0,0,0,.8);
 }
 
 .modal__btn {
@@ -63,7 +58,7 @@
   padding-right: 1rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
-  background-color: #e6e6e6;
+  background-color: #10660D;
   color: rgba(0,0,0,.8);
   border-radius: .25rem;
   border-style: none;
@@ -83,19 +78,20 @@
   transition: -webkit-transform .25s ease-out;
   transition: transform .25s ease-out;
   transition: transform .25s ease-out,-webkit-transform .25s ease-out;
+  margin-right: 20px;
+  color: #fff;
 }
 
-.modal__btn:focus, .modal__btn:hover {
+.modal__btn:focus,
+.modal__btn:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
 
 .modal__btn-primary {
-  background-color: #00449e;
+  background-color: #E4221B;
   color: #fff;
 }
-
-
 
 /**************************\
   Demo Animation Style
@@ -147,4 +143,9 @@
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
   will-change: transform;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: center;
 }

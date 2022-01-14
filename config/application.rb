@@ -21,5 +21,6 @@ module Ganbatter
     config.i18n.default_locale = :ja
     # Batchファイル実行のために「autoload」を追加(whenever)
     config.autoload_paths += Dir["#{config.root}/lib"]
+    config.time_zone = 'Tokyo'
   end
 end
