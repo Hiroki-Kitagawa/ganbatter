@@ -2,11 +2,13 @@
 #
 # Table name: articles
 #
-#  id         :integer          not null, primary key
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  id          :integer          not null, primary key
+#  likes_count :integer          default(0)
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  bot_id      :integer          default(0)
+#  user_id     :integer          not null
 #
 # Indexes
 #
@@ -17,7 +19,7 @@
 #
 #  user_id  (user_id => users.id)
 #
-require "test_helper"
+require 'test_helper'
 
 class ArticleTest < ActiveSupport::TestCase
   # test "the truth" do

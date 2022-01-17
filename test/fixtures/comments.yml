@@ -3,10 +3,13 @@
 # Table name: comments
 #
 #  id         :integer          not null, primary key
+#  bot_name   :string
 #  content    :text
+#  img        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  article_id :integer          not null
+#  bot_id     :integer          default(0)
 #  user_id    :integer          not null
 #
 # Indexes

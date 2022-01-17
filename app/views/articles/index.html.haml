@@ -6,6 +6,7 @@
       .home-right.col-8
         = render 'shared/article'
         = render 'shared/comment'
+        .comments-container
         - if user_signed_in? && @article
           = form_with(model: @comment, url: article_comments_path(@article.id), local: true) do |f|
             - @comment.errors.full_messages.each do |message|
@@ -14,6 +15,7 @@
               .mb-3
                 = f.hidden_field :user_id, :value => current_user.id
                 = f.hidden_field :article_id, :value => @article.id
-                = f.label :応援コメントをする
-                = f.text_field :content, class: 'form-control'
-              = f.submit '送信', class: "btn btn-primary"
+                = f.text_area :content, class: 'form-control', required: true
+              = f.submit '応援する', class: "btn-blue-bc add-comment-button"
+
+= javascript_pack_tag 'like'

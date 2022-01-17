@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_articles, only: [:index, :show]
+  before_action :set_articles, only: [:index, :show, :archives]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
     if @article
       @comments = @article.comments
       @comment  = Comment.new
+      @likes = @article.likes_count
     end
   end
 
@@ -14,6 +15,7 @@ class ArticlesController < ApplicationController
     @article  = @articles.find(params[:id])
     @comments = @article.comments
     @comment = Comment.new
+    @likes = @article.likes_count
     render :index
   end
 
@@ -24,7 +26,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:success] = "よし！目標を作成できた！頑張ろう！"
+      flash[:success] = 'よし！目標を作成できた！頑張ろう！'
       redirect_to root_url
     else
       render :new
@@ -38,7 +40,7 @@ class ArticlesController < ApplicationController
   def update
     @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
-      flash[:success] = "いいね！目標を改善した！頑張れる気がする！"
+      flash[:success] = 'いいね！目標を改善した！頑張れる気がする！'
       redirect_to root_url
     else
       render :edit
@@ -47,8 +49,12 @@ class ArticlesController < ApplicationController
 
   def destroy
     current_user.articles.find(params[:id]).destroy
-    flash[:success] = "削除してしまった、、次頑張ろう！"
+    flash[:success] = '削除してしまった、、次頑張ろう！'
     redirect_to root_url
+  end
+
+  def archives
+    @articles = Article.all.order(updated_at: :desc).paginate(page: params[:page])
   end
 
   private
@@ -58,6 +64,6 @@ class ArticlesController < ApplicationController
     end
 
     def set_articles
-      @articles = Article.all.order(updated_at: :desc)
+      @articles = Article.all.order(updated_at: :desc).paginate(page: params[:page])
     end
 end

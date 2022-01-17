@@ -4,35 +4,35 @@ class CommentsController < ApplicationController
   def create
     @articles = Article.all.order(updated_at: :desc)
     @article = Article.find(params[:article_id])
-    @comments = @article.comments
+    @comments = Article.find(params[:article_id]).comments
     @comment = @article.comments.build(comment_params)
 
     if @comment.save
-      flash[:success] = "応援できた！"
+      flash[:success] = '応援できた！'
       redirect_to article_path(@article)
     else
       render 'articles/index'
     end
   end
 
-  def edit
-    @article = current_user.articles.find(params[:id])
-  end
-
   def update
-    @article = current_user.articles.find(params[:id])
-    if @article.update(article_params)
-      flash[:success] = "いいね！"
-      redirect_to root_url
+    @articles = Article.all.order(updated_at: :desc)
+    @article = Article.find(params[:article_id])
+    @comments = Article.find(params[:article_id]).comments
+    @comment = @article.comments.build(comment_params)
+
+    if @comment.update(comment_params)
+      flash[:success] = 'いいね！'
+      redirect_to article_path(@article)
     else
-      render :edit
+      render 'articles/index'
     end
   end
 
   def destroy
     article = Article.find(params[:article_id])
     article.comments.find(params[:id]).destroy!
-    flash[:success] = "もったいない！"
+    flash[:success] = 'もったいない！'
     redirect_to article_path(article)
   end
 
